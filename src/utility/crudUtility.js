@@ -59,3 +59,10 @@ export const toggleLikes=async(id,uid)=>{
 		await updateDoc(docRef,{likes:[...likesArr,uid]})
 	}
 }
+
+export const updatePost = async(id,{title,category,story})=>{
+	//console.log('crudutility:', id,title,category,story);
+	
+	const docRef=doc(db, 'posts', id)
+	await updateDoc(docRef,{title,category,story})
+}
