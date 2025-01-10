@@ -42,7 +42,7 @@ export const Detail = () => {
 		}
 	}
 
-	const handleLikes=() => {
+	const handleLikes = () => {
 		if (!user) setTxt("Csak bejelentkezett felhasználók likeolhatnak!")
 		else toggleLikes(post.id, user.uid)
 	}
@@ -51,23 +51,25 @@ export const Detail = () => {
 
 	return (
 		<div className='page'>
-			{post && <>
-				<img src={post.photo['url']} alt={post.title} style={{ maxWidth: "300px" }} />
-				<p>{parse(post.story)}</p>
-			</>}
-			<button className='btn btn-secondary' onClick={() => navigate('/posts')}>Return</button>
-			<div>
-				<button><AiFillLike onClick={handleLikes} /></button>
-				{post && <span>Likes nr.:{post?.likes.length}</span>}
+			<div className='postContent'>
+				{post && <>
+					<img src={post.photo['url']} alt={post.title} style={{ maxWidth: "300px" }} />
+					<p>{parse(post.story)}</p>
+				</>}
+				<button className='btn btn-secondary' onClick={() => navigate('/posts')}>Return</button>
+				<div>
+					<button><AiFillLike onClick={handleLikes} /></button>
+					{post && <span>Likes nr.:{post?.likes.length}</span>}
+				</div>
+				{
+					user && post && (user.uid = post.userId) &&
+					<>
+						<button><MdDelete onClick={handleDelete} /></button>
+						<button><MdEdit /></button>
+					</>
+				}
+				{txt && <Alerts txt={txt} err={false} />}
 			</div>
-			{
-				user && post && (user.uid = post.userId) &&
-				<>
-					<button><MdDelete onClick={handleDelete} /></button>
-					<button><MdEdit /></button>
-				</>
-			}
-			{txt && <Alerts txt={txt} err={false} />}
 		</div>
 	)
 }

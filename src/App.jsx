@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { DeleteAccount } from './components/DeleteAccount'
 import { Detail } from './pages/Detail'
 
+
 const router = createBrowserRouter([
 	{element: <Header/>,
 		children: [

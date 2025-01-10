@@ -25,7 +25,7 @@ console.log(selCateg);
 	return (
 	<div className='page'>
 		<Categories selCateg={selCateg} setSelCateg={setSelCateg}/>
-		<CardsContainer posts={posts} />
+		<CardsContainer className='postCard' posts={posts} />
 	</div>
   )
 }

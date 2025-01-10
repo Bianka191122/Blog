@@ -5,6 +5,7 @@ import { UserProvider } from './context/UserContext.jsx'
 import { CategProvider } from './context/CategContext.jsx'
 import { ConfirmProvider } from "material-ui-confirm"
 
+
 createRoot(document.getElementById('root')).render(
 	<ConfirmProvider>
 	<CategProvider>

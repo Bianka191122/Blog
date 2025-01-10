@@ -20,9 +20,8 @@ export const Home = () => {
 						<img alt="Sample" src={obj.photoUrl} />
 						<CardBody>
 							<CardTitle tag="h5">
-								<NavLink to={'/posts?ctg='+obj.name}>{obj.name}</NavLink>
+								<NavLink className='link' to={'/posts?ctg='+obj.name}>{obj.name}</NavLink>
 							</CardTitle>
-
 						</CardBody>
 					</Card>
 				)}

@@ -1,71 +1,141 @@
-.page{
+.page {
 	min-height: 100vh;
 }
 
-.imagesContainer{
+.imagesContainer {
 	display: flex !important;
 	align-items: center !important;
 	justify-content: center !important;
 	flex-wrap: wrap !important;
-	margin-top: 10% !important;
+	margin-top: 80px !important;
 	gap: 20px;
 }
 
-.imagesContainer img{
-	margin-left: 15px;
+.imagesContainer img {
+	margin-left: 8px;
+	margin-top: 6px;
 	width: 34.5vh;
 	height: 35vh;
 	object-position: center;
 	object-fit: cover;
-	border: 3px solid rgb(87, 9, 9);
+	/*border: 3px solid rgb(87, 9, 9);*/
 	border-radius: 10px;
 }
 
-body{
-	background-color: rgb(87, 9, 9) !important;
-	color: white !important;
+body {
+	background: #ddccbb;
+	background: -webkit-linear-gradient(to right, #ffffff, #ddccbb);
+	background: linear-gradient(to right, #FFFFFF, #ddccbb);
+	font-family: "Handlee", serif !important;
+	font-weight: 400 !important;
+  	font-style: normal !important;
 }
 
-.headerContainer{
-	color: white!important;
+.headerContainer {
+	color: rgb(130, 90, 50) !important;
 }
 
-.myavatar{
-	width:30px;
+.myavatar {
+	width: 30px;
 	height: 30px;
 	border-radius: 50%;
 }
 
-.card{
+.card {
+	min-height: 300px;
+	min-width: 300px;
 	width: 23rem;
 	padding: 10px;
-	background-color: rgb(143, 121, 121) !important;
-	color: rgb(87, 9, 9) !important;
+	background-color: rgba(70, 50, 30, 0.2) !important;
+	color: rgb(130, 90, 50) !important;
 	text-align: center;
-	border-radius: 15px!important;
+	border-radius: 15px !important;
+	border: 1px rgba(0, 0, 0, 0) solid !important;
 }
 
-h5{
-	font-size: 25px!important;
+h5 {
+	font-size: 25px !important;
 	font-weight: bold !important;
 }
 
-.line{
+.line {
 	width: 20%;
-	border: 2px solid rgb(197, 181, 181);
+	border: 2px solid rgb(50, 30, 10) ;
 	border-radius: 5px;
-	margin:auto;
+	margin: auto;
 }
 
-h1{
+h1 {
 	text-align: center;
 	font-weight: bold !important;
-	color: rgb(143, 121, 121) !important;
-	margin-top: 20px!important;
+	color: rgb(130, 90, 50) !important;
+	margin-top: 20px !important;
 }
 
-.nav-link{
-	color: rgb(87, 9, 9)!important;
-	font-size: 17px!important;
-	font-weight: bold!important;
+.nav-link {
+	color: rgb(220, 200, 170) !important;
+	font-size: x-large !important;
+	font-weight: bold !important;
+}
+
+.title{
+	margin-top: 60px;
+}
+
+.logo{
+	margin-bottom: 6px;
+	margin-left: 6px;
+	color: rgb(220, 200, 170) !important;
+}
+
+.link{
+	color: rgb(130, 90, 50) !important;
+	text-decoration: none;
+}
+
+.cardsContainer{
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	flex-wrap: wrap !important;
+	gap: 30px;
+}
+
+.categoria{
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	background-color: rgb(70, 50, 30, 0.6);
+	color: rgb(220, 200, 170) !important;
+	max-width: 600px;
+	padding-top: 20px;
+	margin-bottom: 50px;
+	font-size: larger;
+	font-weight: bold;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	-webkit-touch-callout: none; 
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+input[type="checkbox"] {
+    background: rgb(225, 220, 215);
+	border: none !important;
+	box-shadow: none !important;
+}
+
+input[type="checkbox"]:checked{
+	background: rgb(130, 90, 50);
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.postContent{
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
 }
