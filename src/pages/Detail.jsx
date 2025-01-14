@@ -20,7 +20,7 @@ export const Detail = () => {
 	const confirm = useConfirm()
 	const params = useParams()
 	const navigate = useNavigate()
-	console.log(params.id);
+	//console.log(params.id);
 
 	useEffect(() => {
 		ReadPost(params.id, setPost)
@@ -38,7 +38,7 @@ export const Detail = () => {
 			delPhoto(post.photo.id)//Cloudinary-ból törli a fotót
 			navigate('/posts')
 		} catch (error) {
-			console.log('mégse:', error);
+			//console.log('mégse:', error);
 		}
 	}
 
@@ -53,22 +53,26 @@ export const Detail = () => {
 		<div className='page'>
 			<div className='postContent'>
 				{post && <>
-					<img src={post.photo['url']} alt={post.title} style={{ maxWidth: "300px" }} />
+					<img src={post.photo['url']} alt={post.title} style={{ maxWidth: "500px" }} />
+					<hr style={{border:'none', backgroundColor:"rgb(70, 50, 30)", height:'2px'}}/>
 					<p>{parse(post.story)}</p>
 				</>}
-				<button className='btn btn-secondary' onClick={() => navigate('/posts')}>Return</button>
-				<div>
-					<button><AiFillLike onClick={handleLikes} /></button>
-					{post && <span>Likes nr.:{post?.likes.length}</span>}
+				<div className='return'>
+					<button className='gomb btn btn-secondary' onClick={() => navigate('/posts')}>Return</button>
+					<div>
+						<button><AiFillLike className='likeButton' onClick={handleLikes} /></button>
+						{post && <span> {post?.likes.length}</span>}
+					</div>
 				</div>
 				{
 					user && post && (user.uid = post.userId) &&
-					<>
+					<div className='iconButton'>
 						<button><MdDelete onClick={handleDelete} /></button>
 						<button><MdEdit onClick={() => navigate(/update/ + post.id)} /></button>
-					</>
+					</div>
 				}
 				{txt && <Alerts txt={txt} err={false} />}
+
 			</div>
 		</div>
 	)

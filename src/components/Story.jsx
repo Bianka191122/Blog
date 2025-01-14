@@ -7,16 +7,17 @@ import { useEffect } from 'react';
 export const Story = ({ setStory, uploaded, story }) => {
   const [html, setHtml] = useState('Write something nice!');
 
-  useEffect(()=>{
+  useEffect(() => {
     setHtml(story)
-  },[story])
+  }, [story])
 
   return (
-    <EditorProvider>
-      <Editor value={html} onChange={(e) => setHtml(e.target.value)}
-        onBlur={() => setStory(html)}
-      />
-    </EditorProvider>
-
+    <div style={{width:'150px'}}>
+      <EditorProvider>
+        <Editor value={html} onChange={(e) => setHtml(e.target.value)}
+          onBlur={() => setStory(html)}
+        />
+      </EditorProvider>
+    </div>
   );
 }

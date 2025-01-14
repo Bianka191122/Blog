@@ -12,7 +12,7 @@ import {
 	DropdownItem
 } from 'reactstrap';
 import { NavLink, Outlet } from 'react-router-dom';
-import { ImBlogger } from "react-icons/im";
+import { BiCoffeeTogo } from "react-icons/bi";
 import { RxAvatar } from 'react-icons/rx';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
@@ -22,23 +22,22 @@ import { extractUrlAndId } from '../utility/utils';
 export const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { user, logoutUser } = useContext(UserContext)
-	const [avatar,setAvatar] = useState(null)
+	const [avatar, setAvatar] = useState(null)
 
-	useEffect(()=>{
+	useEffect(() => {
 		user?.photoURL && setAvatar(extractUrlAndId(user.photoURL).url)
 		!user && setAvatar(null)
-	  },[user,user?.photoURL])
-	
+	}, [user, user?.photoURL])
 
-	console.log(user);
 
+	//console.log(user);
 
 	const toggle = () => setIsOpen(!isOpen);
 
 	return (
 		<div className='headerContainer'>
-			<Navbar className="nav" expand="md" style={{ backgroundColor:"rgb(70, 50, 30, 0.6)", fontSize:"15px" }}>
-				<NavbarBrand href="/" className='logo'><ImBlogger /></NavbarBrand>
+			<Navbar className="nav" expand="md" style={{ backgroundColor: "rgb(70, 50, 30, 0.6)", fontSize: "15px" }}>
+				<NavbarBrand href="/" className='logo'><BiCoffeeTogo size={40} /></NavbarBrand>
 				<NavbarToggler onClick={toggle} />
 				<Collapse isOpen={isOpen} navbar>
 					<Nav className="me-auto" navbar>
@@ -51,9 +50,9 @@ export const Header = () => {
 							<NavLink className='nav-link' to='/posts'>Posts</NavLink>
 						</NavItem>
 						{user &&
-						<NavItem>
-							<NavLink className='nav-link' to='/create'>New Post</NavLink>
-						</NavItem>
+							<NavItem>
+								<NavLink className='nav-link' to='/create'>New Post</NavLink>
+							</NavItem>
 						}
 
 					</Nav>
@@ -66,35 +65,31 @@ export const Header = () => {
 								<NavItem>
 									<NavLink className='nav-link' to="/auth/in">Log In</NavLink>
 								</NavItem>
-
 								<NavItem>
 									<NavLink className='nav-link' to="/auth/up">Register</NavLink>
 								</NavItem>
 							</>
 							: <>
 								<NavItem>
-									<NavLink className='nav-link' to="/" onClick={()=>logoutUser()}>Log out</NavLink>
+									<NavLink className='nav-link' to="/" onClick={() => logoutUser()}>Log out</NavLink>
 								</NavItem>
 								<UncontrolledDropdown nav inNavbar>
 									<DropdownToggle nav caret>
-										{avatar ? <img className='myavatar' src={avatar}/> : <RxAvatar title={user.displayName}/>}
+										{avatar ? <img className='myavatar' src={avatar} /> : <RxAvatar title={user.displayName} />}
 									</DropdownToggle>
-									<DropdownMenu end>
-										<DropdownItem >
-										<NavLink className='nav-link' to="/profile">Personal data</NavLink>
+									<DropdownMenu end style={{ margin: '0', padding: '0'}}>
+										<DropdownItem style={{ backgroundColor: "rgb(70, 50, 30, 0.6) " }}>
+											<NavLink className='nav-link profil' to="/profile">Personal data</NavLink>
 										</DropdownItem>
-										<DropdownItem divider />
-										<DropdownItem > 
-										<NavLink className='nav-link' to="/deleteAccount">Delete account</NavLink>
+										<DropdownItem divider style={{ backgroundColor: "rgb(70, 50, 30, 0.6) ", padding: "0", margin: "0" }} />
+										<DropdownItem style={{ backgroundColor: "rgb(70, 50, 30, 0.6) " }} >
+											<NavLink className='nav-link profil' to="/deleteAccount">Delete account</NavLink>
 										</DropdownItem>
 									</DropdownMenu>
 								</UncontrolledDropdown>
 							</>
 						}
-
-
 					</Nav>
-
 				</Collapse>
 			</Navbar>
 			<Outlet />

@@ -51,11 +51,11 @@ export const toggleLikes=async(id,uid)=>{
 	const docSnap = await getDoc(docRef)
 	const likesArr=docSnap.data().likes || []
 	if(likesArr.includes(uid)){
-		console.log('unlike');
+		//console.log('unlike');
 		await updateDoc(docRef, {likes:likesArr.filter(p_id=>p_id!=uid)})
 	}
 	else{
-		console.log('like');
+		//console.log('like');
 		await updateDoc(docRef,{likes:[...likesArr,uid]})
 	}
 }

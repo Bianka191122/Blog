@@ -25,15 +25,15 @@ export const DeleteAccount = () => {
 			await deleteAccount()
 			logoutUser()
 		} catch (error) {
-			console.log("Cancel: ", error);
-			
+			console.log("Cancel: ", error);	
 		}
 	}
 
   return (
 	<div className='page'>
-		<button className="btn btn-danger" onClick={handleDelete}>Delete account</button>
-	  
+		<div className='delete'>
+			<button className="btn" onClick={handleDelete}>Delete account</button>
+		</div>
 	</div>
   )
 }

@@ -42,7 +42,7 @@ body {
 }
 
 .card {
-	min-height: 300px;
+	min-height: 200px;
 	min-width: 300px;
 	width: 23rem;
 	padding: 10px;
@@ -52,9 +52,18 @@ body {
 	border-radius: 15px !important;
 	border: 1px rgba(0, 0, 0, 0) solid !important;
 }
+/*-----------------------------------------------------------*/
+.card:hover{
+	background-color: rgb(70, 50, 30, 0.6) !important;
+	color: rgb(220, 200, 170) !important;
+}
+
+a:hover{
+	color: rgb(220, 200, 170) !important;
+}
 
 h5 {
-	font-size: 25px !important;
+	font-size: 35px !important;
 	font-weight: bold !important;
 }
 
@@ -69,6 +78,7 @@ h1 {
 	text-align: center;
 	font-weight: bold !important;
 	color: rgb(130, 90, 50) !important;
+	font-size: 50px !important;
 	margin-top: 20px !important;
 }
 
@@ -137,9 +147,335 @@ input[type="checkbox"]:checked {
 }
 
 .postContent {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 350px;
+	min-width: 350px;
+	width: 60rem;
+	padding-top: 22px;
+	background-color: rgba(70, 50, 30, 0.2) !important;
+	color: rgb(130, 90, 50) !important;
+	text-align: center;
+	border-radius: 15px !important;
+	border: 1px rgba(0, 0, 0, 0) solid !important;
+	font-size: larger;
+	padding: 50px;
+}
+
+.postContent img {
+	margin-bottom: 40px;
+}
+
+.postContent p {
+	margin-bottom: 30px;
+}
+
+.postContent button {
+	margin-bottom: 10px;
+	margin-top: 5px;
+	background-color: rgb(70, 50, 30, 0.6);
+	border: none;
+	border-radius: 5px;
+	color: rgb(220, 200, 170);
+	font-size: 30px;
+}
+
+.gomb {
+	display: flex !important;
+	align-items: left !important;
+	justify-content: center !important;
+	font-size: 22px !important;
+}
+
+.return {
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+}
+
+.postContent button:hover {
+	background-color: rgb(220, 200, 170);
+	color: rgb(70, 50, 30, 0.6);
+}
+
+.postContent img {
+	border-radius: 15px;
+	box-shadow: 6px 6px 10px rgb(70, 50, 30, 0.5);
+}
+
+.iconButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.likeButton {
+	margin-right: 2px;
+	margin-left: 2px;
+	margin-bottom: 5px;
+}
+
+span {
+	margin-left: 10px;
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.search {
 	display: flex !important;
 	align-items: center !important;
 	justify-content: center !important;
-	flex-direction: column;
-	background-color: rgb(70, 50, 30, 0.2);
+	margin-bottom: 50px;
 }
+
+p {
+	text-align: justify;
+}
+
+.profil {
+	padding: 0 !important;
+}
+
+.felugro {
+	background-color: rgb(220, 200, 170) !important;
+}
+
+.delete {
+	display: flex;
+	justify-content: center;
+}
+
+.delete button {
+	background-color: rgb(70, 50, 30, 0.6) !important;
+	color: rgb(220, 200, 170) !important;
+	font-size: x-large !important;
+	font-weight: bold;
+	margin-top: 50px;
+}
+
+.newPost {
+	display: flex;
+	justify-content: center;
+	align-items: start;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-radius: 15px;
+	max-width: 60rem;
+	min-height: 45rem;
+	background-color: rgba(70, 50, 30, 0.2);
+}
+
+.newPost img {
+	margin-left: auto;
+	margin-right: auto;
+	width: 35vh;
+	height: 35vh;
+}
+
+.page label {
+	margin-top: 30px;
+	margin-right: 10px;
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.page input {
+	background-color: rgb(70, 50, 30, 0.6);
+	color: rgb(220, 200, 170);
+	border: none;
+	border-radius: 5px;
+	font-size: larger;
+}
+
+.page input:focus {
+	background-color: rgb(220, 200, 170);
+	color: rgb(70, 50, 30, 0.6);
+	border: none;
+	box-shadow: none;
+	max-width: 350px;
+	border-radius: 25px;
+}
+
+.fajl {
+	margin-top: 40px;
+}
+
+.fajl2 {
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+
+.profilSettings {
+	margin-right: auto;
+	margin-left: auto;
+	flex-direction: column;
+	background-color: rgba(70, 50, 30, 0.2);
+	margin-top: 50px;
+	text-align: center;
+	font-size: larger;
+	font-weight: bold;
+	border-radius: 15px;
+	max-width: 60rem;
+}
+
+.profilSettings h3 {
+	margin-top: 30px;
+	padding-top: 30px;
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+.profilSettings img {
+	margin-top: 30px;
+	margin-bottom: 50px;
+	width: 150px;
+	height: 150px;
+}
+
+.page h3 {
+	margin-top: 150px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 40px;
+}
+
+.page button {
+	background-color: rgb(70, 50, 30, 0.6);
+	color: rgb(220, 200, 170);
+	border: none;
+	margin-top: 20px;
+	font-size: larger;
+	font-weight: bold;
+}
+
+.page button:hover {
+	background-color: rgb(220, 200, 170);
+	color: rgb(70, 50, 30, 0.6);
+}
+
+/*
+@media (max-width: 768px) {
+	h1 {
+		margin-right: 20px;
+	}
+
+	.card {
+		max-height: 400px;
+		max-width: 350px;
+	}
+
+	.card img {
+		min-width: 250px;
+		margin-left: 8px;
+		margin-top: 5px;
+	}
+
+	img {
+		width: 200px;
+		height: 310px;
+		min-height: 200px;
+		min-width: 210px;
+		max-height: 200px;
+		max-width: 210px;
+	}
+
+	.postContent {
+		max-width: 350px;
+		min-width: 350px;
+	}
+
+	.postContent img {
+		min-width: 250px;
+	}
+
+	.categoria {
+		padding-left: 50px;
+		max-width: 350px;
+	}
+
+	.search {
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+
+	.newPost {
+		min-height: 850px;
+		max-height: 500px;
+		max-width: 350px;
+	}
+
+	.newPost input {
+		max-height: 350px;
+		max-width: 300px;
+	}
+
+	.newPost img {
+		min-width: 250px;
+	}
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	h1 {
+		margin-right: 20px;
+	}
+
+	.card {
+		max-height: 400px;
+		max-width: 350px;
+	}
+
+	.card img {
+		min-width: 250px;
+		margin-left: 8px;
+		margin-top: 5px;
+	}
+
+	img {
+		width: 200px;
+		height: 310px;
+		min-height: 200px;
+		min-width: 310px;
+		max-height: 200px;
+		max-width: 310px;
+	}
+
+	.postContent {
+		max-width: 350px;
+		min-width: 350px;
+	}
+
+	.postContent img {
+		min-width: 250px;
+	}
+
+	.categoria {
+		padding-left: 50px;
+		max-width: 350px;
+	}
+
+	.search {
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+
+	.newPost {
+		height: 1000px;
+		min-height: 1000px;
+		max-height: 1000px;
+		max-width: 350px;
+	}
+
+	.newPost input {
+		max-height: 350px;
+		max-width: 300px;
+	}
+
+	.newPost img {
+		min-width: 250px;
+	}
+}*/

@@ -9,6 +9,7 @@ export const Categories = ({ selCateg, setSelCateg }) => {
 	const handleChange = (event) => {
 		const { value, checked } = event.target
 		setSelCateg(prev => checked ? [...prev, value] : prev.filter(categ => categ != value))
+		//console.log(setSelCateg);
 	}
 
 	return (

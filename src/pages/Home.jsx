@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 export const Home = () => {
 
 	const { categories } = useContext(CategContext)
-	console.log(categories);
+	//console.log(categories);
 
 	return (
 		<div className='title'>
@@ -16,7 +16,7 @@ export const Home = () => {
 			<hr className='line'></hr>
 			<div className='imagesContainer'>
 				{categories && categories.map(obj =>
-					<Card className="card">
+					<Card className="card" key={obj.name}>
 						<img alt="Sample" src={obj.photoUrl} />
 						<CardBody>
 							<CardTitle tag="h5">

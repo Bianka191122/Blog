@@ -18,11 +18,11 @@ export const Auth = () => {
 	const {user,signInUser, msg, setMsg, signUpUser}=useContext(UserContext)
 
 	const location = useLocation()
-	console.log(location.pathname);
+	//console.log(location.pathname);
 	const isSignin = location.pathname == '/auth/in' //true
 	
 
-	console.log(msg);
+	//console.log(msg);
 	
 useEffect(()=>{
 	setMsg(null)
@@ -31,7 +31,7 @@ useEffect(()=>{
 		event.preventDefault
 		setMsg({...msg,err:null})
 		const data = new FormData(event.currentTarget)
-		console.log(data.get('email'), data.get('password'), data.get('displayName'));
+		//console.log(data.get('email'), data.get('password'), data.get('displayName'));
 		//signInUser(data.get('email'), data.get('password'))
 		if(isSignin){
 			signInUser(data.get('email'),data.get('password'))
@@ -41,7 +41,7 @@ useEffect(()=>{
 		
 	}
 
-	console.log(user);
+	//console.log(user);
 	
 
 	return (
@@ -86,7 +86,6 @@ useEffect(()=>{
 					<NavLink to="/pwReset">
 						<Button>Forgotten password</Button>
 					</NavLink>
-
 				)}
 				{msg && <Toastify {...msg}/>}
 			</div>

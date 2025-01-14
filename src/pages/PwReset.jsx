@@ -19,7 +19,7 @@ export const PwReset = () => {
   const handleSubmit=(event)=>{
     event.preventDefault()
      const data=new FormData(event.currentTarget)
-     console.log(data.get('email'));
+     //console.log(data.get('email'));
      
    resetPassword(data.get('email'))
   }

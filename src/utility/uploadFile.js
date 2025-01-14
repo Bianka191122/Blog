@@ -9,7 +9,7 @@ export const uploadFile = async (file) => {
 		const response = await axios.post(url, formData)
 		return {url:response.data.secure_url,id:response.data.public_id}
 	} catch (error) {
-		console.log(error);
+		//console.log(error);
 		
 	}
 }
@@ -21,6 +21,6 @@ export const delPhoto = async (id) => {
 	try {
 		await axios.delete(url + id)
 	} catch (error) {
-		console.log(error);
+		//console.log(error);
 	}
 } 

@@ -1,1 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+
+:root {
+    --toastify-toast-background: rgb(70, 50, 30, 0.6);
+}
+
+.Toastify__toast {
+    background-color: rgba(80, 60, 30, 0.9) !important;
+    color: rgb(220, 200, 170) !important;
+}
+

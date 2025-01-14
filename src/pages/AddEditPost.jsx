@@ -38,7 +38,6 @@ export const AddEditPost = () => {
 			setStory(post.story)
 		}
 	}, [post])
-	
 
 	if (!user) return <Home />
 
@@ -46,16 +45,16 @@ export const AddEditPost = () => {
 		setLoading(true)
 		if (params.id) {
 			//update
-			console.log(data);
-			
+			//console.log(data);
+
 			try {
-				updatePost(params.id,{...data,category:selCateg,story})
-			} 
-			catch (error) {
-				console.log('update:',error);
-				
+				updatePost(params.id, { ...data, category: selCateg, story })
 			}
-			finally{
+			catch (error) {
+				//console.log('update:',error);
+
+			}
+			finally {
 				setLoading(false)
 			}
 		}
@@ -69,14 +68,14 @@ export const AddEditPost = () => {
 				category: selCateg,
 				likes: []
 			}
-			console.log('postData: ', newPostData);
+			//console.log('postData: ', newPostData);
 
 			try {
 				const file = data?.file ? data.file[0] : null;
 				const { url, id } = file ? await uploadFile(file) : {}
 				delete newPostData.file
 				newPostData = { ...newPostData, photo: { url, id } }
-				console.log('postData', newPostData);
+				//console.log('postData', newPostData);
 
 				addPost(newPostData)
 				setUploaded(true)
@@ -84,7 +83,7 @@ export const AddEditPost = () => {
 				setPhoto(null)
 				setStory(null)
 			} catch (error) {
-				console.log(error);
+				//console.log(error);
 			} finally {
 				setLoading(false);
 			}
@@ -93,36 +92,43 @@ export const AddEditPost = () => {
 
 	return (
 		<div className='page'>
-			<form onSubmit={handleSubmit(onSubmit)}>
-
-				<div><label >Post name:  </label>
-					<input {...register('title', { required: true })} type='text' />
-					<p className='text-danger'>{errors.title && 'Naming the post is required'}</p>
-					<CategDropdown categories={categories} setSelCateg={setSelCateg} selCateg={selCateg} />
-					<Story setStory={setStory} uploaded={uploaded} story={story} />
-				</div>
-				<div><label >Avatar: </label>
-					<input {...register('file', {
-						required:!params.id,
-						validate: (value) => {
-							if (!value[0]) return true
-							const acceptedFormats = ['jpg', 'png']
-							console.log(value[0]);
-							const fileExtension = value[0].name.split('.').pop().toLowerCase()
-							if (!acceptedFormats.includes(fileExtension)) return "Invalid file format"
-							if (value[0].size > 1 * 1000 * 1024) return "Maximum file size 1MB!"
-							return true
-						}
-					})} type='file'
-						onChange={(e) => setPhoto(URL.createObjectURL(e.target.files[0]))}
-					/>
-					<p className='text-danger'>{errors?.file?.message}</p>
-				</div>
-				<input type="submit" disabled={!selCateg || !story} />
-			</form>
+			<div className='newPost'>
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<div><label >Post name:  </label>
+						<div className='postname'>
+							<input {...register('title', { required: true })} type='text' />
+						</div>
+						<p className='text-danger'>{errors.title && 'Naming the post is required'}</p>
+						<CategDropdown categories={categories} setSelCateg={setSelCateg} selCateg={selCateg} />
+						<Story setStory={setStory} uploaded={uploaded} story={story} />
+					</div>
+					<div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+						<img src={post?.photo?.url ? post.photo.url : photo} />
+					</div>
+					<div className='fajl'>
+						<input {...register('file', {
+							required: !params.id,
+							validate: (value) => {
+								if (!value[0]) return true
+								const acceptedFormats = ['jpg', 'png']
+								//console.log(value[0]);
+								const fileExtension = value[0].name.split('.').pop().toLowerCase()
+								if (!acceptedFormats.includes(fileExtension)) return "Invalid file format"
+								if (value[0].size > 1 * 1000 * 1024) return "Maximum file size 1MB!"
+								return true
+							}
+						})} type='file'
+							onChange={(e) => setPhoto(URL.createObjectURL(e.target.files[0]))}
+						/>
+						<p className='text-danger'>{errors?.file?.message}</p>
+					</div>
+					<div className='fajl'>
+						<input type="submit" disabled={!selCateg || !story} />
+					</div>
+				</form>
+			</div>
 			{loading && <p>Loading...</p>}
 			{uploaded && <Alerts txt='Successfully uploaded!' />}
-			<img src={post?.photo?.url ? post.photo.url : photo} />
 		</div>
 	)
 }

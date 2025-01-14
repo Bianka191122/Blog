@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, deleteUser, onAuthStateChanged, signInW
 import { createContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { styled } from '@mui/material'
 
 export const UserContext = createContext()
 
@@ -11,7 +12,7 @@ export const UserProvider = ({children}) => {
 	const [user,setUser] = useState(null)
 	const [msg,setMsg] = useState(null)
 
-	console.log(msg);
+	//console.log(msg);
 	
 	useEffect(()=>{
 		const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
@@ -26,7 +27,7 @@ export const UserProvider = ({children}) => {
 			await signInWithEmailAndPassword(auth,email,password)
 			setMsg({...msg,signin:'Successfully logged in'})
 		} catch (error){
-			console.log(error);
+			//console.log(error);
 			setMsg({...msg,err:error.message})
 			
 		}
@@ -44,7 +45,7 @@ export const UserProvider = ({children}) => {
 			console.log('Successfully signed up');
 			
 		} catch (error) {
-			console.log(error);
+			//console.log(error);
 			setMsg({...msg,err:error.message})
 			
 		}
@@ -52,13 +53,13 @@ export const UserProvider = ({children}) => {
 	const resetPassword=async (email)=>{
         try {
             await sendPasswordResetEmail(auth,email)
-            console.log('Email sent');
+            //console.log('Email sent');
             
             setMsg({})//
             setMsg({resetPW:"Password reset email sent"})//
         } catch (error) {
             setMsg({err:error.message})//
-            console.log(error);
+            //console.log(error);
             
         }
     }
@@ -90,14 +91,14 @@ export const UserProvider = ({children}) => {
 			console.log("Account deleted");
 			
 		} catch (error) {
-		console.log(error);
-					
+		//console.log(error);	
 		}
 	}
 
 	return(
 		<UserContext.Provider value={{user,signInUser,logoutUser,
-            signUpUser,msg,setMsg,resetPassword,updateCredentials,updateUser, deleteAccount}}>
+            signUpUser,msg,setMsg,resetPassword,updateCredentials,updateUser, deleteAccount
+			}}>
             {children}
         </UserContext.Provider>
 	)
