@@ -261,7 +261,7 @@ p {
 	align-items: start;
 	margin-top: 50px;
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: 50px !important;
 	text-align: center;
 	border-radius: 15px;
 	max-width: 60rem;
@@ -357,7 +357,6 @@ p {
 	color: rgb(70, 50, 30, 0.6);
 }
 
-/*
 @media (max-width: 768px) {
 	h1 {
 		margin-right: 20px;
@@ -478,4 +477,4 @@ p {
 	.newPost img {
 		min-width: 250px;
 	}
-}*/
+}
